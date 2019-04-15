@@ -16,8 +16,9 @@ project "assimp"
   
   includedirs 
   { 
-    "include/**.h",
-    "include/**.cpp"
+    "include/",
+    "include/",
+    ""
   }
   
 	filter "system:windows"
