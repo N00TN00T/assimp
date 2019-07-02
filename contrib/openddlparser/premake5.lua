@@ -1,6 +1,6 @@
--- PREMAKE FOR ASSIMP
+-- PREMAKE FOR openddlparser, ASSIMP DEPENDENCY
 
-project "assimp"
+project "openddlparser"
     kind "SharedLib"
     language "C++"
 
@@ -9,43 +9,13 @@ project "assimp"
 
 	files
   {
-      "code/**.h",
-      "code/**.cpp",
-      "include/**"
+      "code/**"
   }
 
   includedirs
   {
-      "include/",
-      "contrib/irrXML/",
-      "contrib/unzip/",
-      "contrib/openddlparser/include/",
-      "",
-      "contrib/rapidjson/include/"
+      "include/"
   }
-
-  defines
-  {
-    "ASSIMP_BUILD_NO_C4D_IMPORTER",
-    "ASSIMP_BUILD_NO_IFC_IMPORTER"
-  }
-
-  links
-  {
-    "irrXML",
-    "zip",
-    "unzip",
-    "openddlparser",
-    "zlib",
-    "poly2tri"
-  }
-
-  include "contrib/irrXML"
-  include "contrib/zip"
-  include "contrib/unzip"
-  include "contrib/openddlparser"
-  include "contrib/zlib"
-  include "contrib/poly2tri"
 
 	filter "system:windows"
         systemversion "latest"

@@ -1,51 +1,30 @@
--- PREMAKE FOR ASSIMP
+-- PREMAKE FOR zlib, ASSIMP DEPENDENCY
 
-project "assimp"
+project "zlib"
     kind "SharedLib"
-    language "C++"
+    language "C"
 
 	targetdir ("bin/" .. output_dir .. "/%{prj.name}")
   objdir ("bin-int/" .. output_dir .. "/%{prj.name}")
 
 	files
   {
-      "code/**.h",
-      "code/**.cpp",
-      "include/**"
+      "*.h",
+      "*.c"
   }
 
   includedirs
   {
-      "include/",
-      "contrib/irrXML/",
-      "contrib/unzip/",
-      "contrib/openddlparser/include/",
       "",
-      "contrib/rapidjson/include/"
+      "contrib/"
   }
 
-  defines
-  {
-    "ASSIMP_BUILD_NO_C4D_IMPORTER",
-    "ASSIMP_BUILD_NO_IFC_IMPORTER"
-  }
+  --filter "system:not windows"
+    --removefiles
+    --{
+    --    "win32/**"
+    --}
 
-  links
-  {
-    "irrXML",
-    "zip",
-    "unzip",
-    "openddlparser",
-    "zlib",
-    "poly2tri"
-  }
-
-  include "contrib/irrXML"
-  include "contrib/zip"
-  include "contrib/unzip"
-  include "contrib/openddlparser"
-  include "contrib/zlib"
-  include "contrib/poly2tri"
 
 	filter "system:windows"
         systemversion "latest"

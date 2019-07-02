@@ -112,4 +112,3 @@ ASSIMP_API unsigned int aiGetCompileFlags (void);
 #endif
 
 #endif // !! #ifndef AI_VERSION_H_INC
-

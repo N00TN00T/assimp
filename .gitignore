@@ -1,5 +1,6 @@
-.idea
+bin-int/
 build
+.idea
 .project
 *.kdev4*
 
